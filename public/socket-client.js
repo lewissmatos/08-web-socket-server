@@ -6,6 +6,8 @@ const lblOffline = document.querySelector('#lblOffline');
 const lblIdMsg = document.querySelector('#lblIdMsg');
 const lblBodyMsg = document.querySelector('#lblBodyMsg');
 
+const lblMsgSent = document.querySelector('#lblMsgSent');
+
 const txtMessage = document.querySelector('#txtMessage');
 const btnSend = document.querySelector('#btnSend');
 const socket = io();
@@ -39,6 +41,7 @@ btnSend.addEventListener('click', () => {
    
     socket.emit('send-msg', payload, (idMsg)=>{
         console.log(`ID del msnaej enviado: ${idMsg}`);
+        lblMsgSent.innerHTML = idMsg;
     });
 
 });
